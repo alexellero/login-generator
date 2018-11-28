@@ -21,13 +21,14 @@ public class LoginGeneratorTest {
 
     @Test
     public void generateLoginForNomAndPrenom() {
-        loginGenerator.generateLoginForNomAndPrenom("Durand","Paul");
-        assertTrue(loginService.loginExists("PDUR"));
-        loginGenerator.generateLoginForNomAndPrenom("Ralling","John");
-        assertTrue(loginService.loginExists("JRAL2"));
-        loginGenerator.generateLoginForNomAndPrenom("Rolling","Jean");
-        assertTrue(loginService.loginExists("JROL1"));
-        loginGenerator.generateLoginForNomAndPrenom("Dùrand","Paul");
-        assertTrue(loginService.loginExists("PDUR"));
+        String tmp;
+        tmp = loginGenerator.generateLoginForNomAndPrenom("Durand","Paul");
+        assertEquals("PDUR",tmp);
+        tmp = loginGenerator.generateLoginForNomAndPrenom("Ralling","John");
+        assertEquals("JRAL2",tmp);
+        tmp = loginGenerator.generateLoginForNomAndPrenom("Rolling","Jean");
+        assertEquals("JROL1",tmp);
+        tmp = loginGenerator.generateLoginForNomAndPrenom("Du","Paul");
+        assertEquals("PDU",tmp);
     }
 }
